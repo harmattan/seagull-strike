@@ -1,0 +1,11 @@
+seagullstrike (0.1-2) unstable; urgency=low
+
+  * Prepare package for Apps for MeeGo
+
+ -- Michael Sheldon <elleo@gnu.org>  Sun, 08 Apr 2012 02:02:57 +0100
+
+seagullstrike (0.1-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Michael Sheldon <elleo@gnu.org>  Fri, 15 Jul 2011 21:23:16 +0100

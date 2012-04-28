@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1
+Name=Seagull Strike
+GenericName=Seagull Strike
+Comment=Seagull Strike
+Exec=/usr/bin/single-instance /usr/bin/seagullstrike
+Terminal=false
+Type=Application
+Icon=/usr/share/icons/hicolor/scalable/apps/seagullstrike.svg
