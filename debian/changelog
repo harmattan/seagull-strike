@@ -1,3 +1,9 @@
+seagullstrike (1.0-1) unstable; urgency=low
+
+  * Prepare package for Ovi Store
+
+ -- Michael Sheldon <elleo@gnu.org>  Wed, 09 May 2012 19:07:24 +0100
+
 seagullstrike (0.1-2) unstable; urgency=low
 
   * Prepare package for Apps for MeeGo

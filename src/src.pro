@@ -13,7 +13,7 @@ SOURCES += main.cpp HiScore.cpp
   unix {
     #VARIABLES
     isEmpty(PREFIX) {
-        PREFIX = /usr
+        PREFIX = /opt/seagullstrike/
   }
 BINDIR = $$PREFIX/bin
 DATADIR =$$PREFIX/share
@@ -22,7 +22,7 @@ DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
 
 #MAKE INSTALL
 
-INSTALLS += target qmlgui desktop service images iconsvg
+INSTALLS += target qmlgui desktop service images icon
 
   target.path =$$BINDIR
 
@@ -35,12 +35,9 @@ INSTALLS += target qmlgui desktop service images iconsvg
   images.files += *.gif
   images.files += *.svg
 
-  desktop.path = $$DATADIR/applications
+  desktop.path = /usr/share/applications
   desktop.files += $${TARGET}.desktop
 
-  service.path = $$DATADIR/dbus-1/services/
-  service.files += com.meego.$${TARGET}.service
-
-  iconsvg.path = $$DATADIR/icons/hicolor/scalable/apps
-  iconsvg.files += $${TARGET}.svg
+  icon.path = /usr/share/icons/hicolor/80x80/apps
+  icon.files += $${TARGET}.png
 }

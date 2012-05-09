@@ -4,7 +4,7 @@ Version=0.1
 Name=Seagull Strike
 GenericName=Seagull Strike
 Comment=Seagull Strike
-Exec=/usr/bin/single-instance /usr/bin/seagullstrike
+Exec=/usr/bin/invoker --type=e -s /opt/seagullstrike/bin/seagullstrike
 Terminal=false
 Type=Application
-Icon=/usr/share/icons/hicolor/scalable/apps/seagullstrike.svg
+Icon=/usr/share/icons/hicolor/80x80/apps/seagullstrike.png
