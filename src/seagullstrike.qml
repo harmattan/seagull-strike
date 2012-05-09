@@ -11,6 +11,7 @@ Image {
 	property int lives: 10;
 	property int score: 0;
 	property bool collided: false;
+	property bool playing: false;
 
 	Label {
 		id: scoreLabel;
@@ -45,9 +46,51 @@ Image {
 		font.pixelSize: 24;
 	}
 
+	Rectangle {
+		id: pause;
+		visible: false;
+		anchors.centerIn: parent;
+		color: "black";
+		opacity: 0.5;
+		radius: 20;
+		width: 300;
+		height: 200;
+
+		Label {
+			anchors.centerIn: parent;
+			color: "white";
+			text: "Paused";
+			font.weight: Font.Bold;
+			font.pixelSize: 70;
+		}
+	}
+
+	Timer {
+		id: checkPause;
+		interval: 200;
+		running: true;
+		repeat: true;
+		onTriggered: {
+			if(playing) {
+				if (!Qt.application.active) {
+					world.timeStep = 0;
+					birdtime.running = false;
+					rocktime.running = false;
+					pause.visible = true;
+				} else {
+					world.timeStep = 0.0166;
+					birdtime.running = true;
+					rocktime.running = true;
+					pause.visible = false;
+				}
+			}
+		}
+	}
+
 	World {
 		id: world;
 		anchors.fill: parent;
+		timeStep: 0;
 
 		Seagull {
 			id: seagull;
@@ -103,6 +146,8 @@ Image {
 				if(lives == 0) {
 					birdtime.running = false;
 					rocktime.running = false;
+					playing = false;
+					world.timeStep = 0;
 					gameOver.visible = true;
 					credits.visible = true;
 					rock.x = -200;
@@ -122,6 +167,7 @@ Image {
 			onReleased: {
 				gameOver.visible = false;
 				credits.visible = false;
+				world.timeStep = 0.0166;
 				score = 0;
 				scoreLabel.text = "Score: " + score;
 				lives = 10;
@@ -131,6 +177,7 @@ Image {
 				screen.source = "background.jpg";
 				rocktime.running = true;
 				birdtime.running = true;
+				playing = true;
 				enabled = false;
 			}
 		}

@@ -26,10 +26,12 @@ Body {
 		running: true;
 		repeat: true;
 		onTriggered: {
-			gullImg.source = "seagull" + beat + ".svg";
-			beat++;
-			if (beat == 3) {
-				beat = 1;
+			if (Qt.application.active) {
+				gullImg.source = "seagull" + beat + ".svg";
+				beat++;
+				if (beat == 3) {
+					beat = 1;
+				}
 			}
 		}
 	}
